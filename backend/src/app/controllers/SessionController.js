@@ -13,7 +13,7 @@ class SessionController {
     }
 
     if (!(await user.checkPassword(password))) {
-      return res.json(401).json({ error: "Senha errada." });
+      return res.json(401).json({ error: "Senha inválida." });
     }
 
     const { id, name } = user;
