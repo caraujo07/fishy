@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("persons", {
+    return queryInterface.createTable("people", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -26,15 +26,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
-      estadoCivil: {
+      estado_civil: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       ocupacao: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      numeroDeFamiliares: {
+      numero_de_familiares: {
         type: Sequelize.STRING,
         allowNull: true
       },
@@ -68,12 +68,12 @@ module.exports = {
       },
       created_by: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       }
     });
   },
 
-  down: queryInterface => {
-    return queryInterface.dropTable("persons");
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable("people");
   }
 };

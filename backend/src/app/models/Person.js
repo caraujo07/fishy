@@ -8,20 +8,21 @@ class Person extends Model {
         nascimento: Sequelize.STRING,
         cpf: Sequelize.STRING,
         telefone: Sequelize.STRING,
-        estadoCivil: Sequelize.STRING,
+        estado_civil: Sequelize.STRING,
         ocupacao: Sequelize.STRING,
-        numeroDeFamiliares: Sequelize.STRING,
+        numero_de_familiares: Sequelize.STRING,
         nis: Sequelize.STRING,
         rua: Sequelize.STRING,
         numero: Sequelize.STRING,
         complemento: Sequelize.STRING,
-        bairro: Sequelize.STRING
+        bairro: Sequelize.STRING,
+        created_by: Sequelize.STRING
       },
       {
         sequelize
       }
     );
-    
+
     return this;
   }
 }
