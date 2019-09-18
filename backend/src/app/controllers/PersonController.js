@@ -20,7 +20,7 @@ class PersonController {
       rua: Yup.string().required(),
       numero: Yup.string().required(),
       complemento: Yup.string(),
-      bairro: Yup.string().required(),
+      bairro: Yup.string().required()
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -35,12 +35,42 @@ class PersonController {
       return res.status(400).json({ error: "Usuário já cadastrado." });
     }
 
-    const { id, nome, cpf } = await Person.create(req.body);
+    const {
+      nome,
+      nascimento,
+      cpf,
+      telefone,
+      estado_civil,
+      ocupacao,
+      numero_de_familiares,
+      nis,
+      rua,
+      numero,
+      complemento,
+      bairro
+    } = req.body;
+    const created_by = req.username;
+    const { id } = await Person.create({
+      nome,
+      nascimento,
+      cpf,
+      telefone,
+      estado_civil,
+      ocupacao,
+      numero_de_familiares,
+      nis,
+      rua,
+      numero,
+      complemento,
+      bairro,
+      created_by
+    });
 
     return res.json({
       id,
       nome,
       cpf,
+      created_by
     });
   }
 

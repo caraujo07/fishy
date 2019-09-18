@@ -65,11 +65,15 @@ module.exports = {
       updated_at: {
         type: Sequelize.DATE,
         allowNull: false
+      },
+      created_by: {
+        type: Sequelize.STRING,
+        allowNull: true
       }
     });
   },
 
-  down: (queryInterface, Sequelize) => {
+  down: queryInterface => {
     return queryInterface.dropTable("people");
   }
 };
