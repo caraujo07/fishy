@@ -21,7 +21,6 @@ class PersonController {
       numero: Yup.string().required(),
       complemento: Yup.string(),
       bairro: Yup.string().required(),
-      created_by: Yup.string()
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -36,12 +35,12 @@ class PersonController {
       return res.status(400).json({ error: "Usuário já cadastrado." });
     }
 
-    const { id, name, cpf } = await Person.create(req.body);
+    const { id, nome, cpf } = await Person.create(req.body);
 
     return res.json({
       id,
-      name,
-      cpf
+      nome,
+      cpf,
     });
   }
 

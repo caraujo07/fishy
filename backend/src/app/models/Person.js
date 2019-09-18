@@ -16,7 +16,6 @@ class Person extends Model {
         numero: Sequelize.STRING,
         complemento: Sequelize.STRING,
         bairro: Sequelize.STRING,
-        created_by: Sequelize.STRING
       },
       {
         sequelize

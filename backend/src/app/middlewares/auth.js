@@ -8,12 +8,14 @@ export default async (req, res, next) => {
   if (!authHeader) {
     return res.status(401).json({ error: "Token não fornecido." });
   }
-
+  console.log(authHeader);
   const [, token] = authHeader.split(" ");
 
   try {
     const decoded = await promisify(jwt.verify)(token, authConfig.secret);
     req.userId = decoded.id;
+    req.username = decoded.name;
+    console.log(decoded);
 
     return next();
   } catch (error) {
